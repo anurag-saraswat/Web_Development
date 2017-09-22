@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Attendence Calculator</title>
+	<link rel="stylesheet" type="text/css" href="./attendence.css">
+	<script src="angular.min.js"></script>
+</head>
+<body ng-app >
+<h1 align="center">Attendence Calculator</h1>
+  <div class="formbody">  
+    <form name="formv" id="formdata" action="analysis.html">
+       <div class="fbody">
+        <div align="center">
+        <label>Total Lecture :</label> 
+        <input ng-init="tlect=0" ng-model="tlect" type="number" >
+
+        <label style="margin-left:50px ">Absent :</label> 
+        <input ng-init="absent=0" ng-model="absent" type="number" placeholder="Current Status" > 
+
+         <br><br>
+         <label>Lecture / day : </label>
+         <input ng-init="lperd=7" ng-model="lperd" type="number">
+
+         <label style="margin-left:50px "> Criteria : </label>
+         <input ng-init="criteria=75" ng-model="criteria" type="number">
+         </div>
+         <br><br>
+         <div align="center">
+         
+         <label> Days Willing To Skip :</label>
+         <input ng-init="dskip=0" ng-model="dskip" type="number">
+         <br><br>
+         
+         <label> Lecture Willing To Skip :</label>
+         <input ng-init="lskip=0" ng-model="lskip" type="number">
+         <br><br>
+         
+         <label> Percentage Willing To Maintain :</label>
+         <input ng-init="pmaint=75" ng-model="pmaint" type="number">
+         </div>
+         
+           <div  align="center" >
+        <button type="reset"> Reset</button>
+          </div>
+      
+      </div>
+    </form>
+  </div> 
+
+  
+    <h1 align="center">Analysis</h1> 
+
+      <div class="formbody">  
+    <form>
+       <div id="Analysis" align="Center">
+        <label> Current Percentage: {{((tlect-absent)/tlect)*100}}</label>
+        <br><br>
+        <label>Percentage After Skipping: 
+         {{ (((tlect + dskip*7 + lskip) - (absent + dskip*7 + lskip))/(tlect + dskip*7 + lskip))*100}}
+        </label>
+        <br><br>
+        <label>If you are willing to maintain {{pmaint}} % then you have to attend {{ ((tlect*100) - (absent*100) - (pmaint*tlect))/(pmaint-100) }} lecture</label>
+      </div>
+    </form>
+  </div> 
+</body>
+</html>
