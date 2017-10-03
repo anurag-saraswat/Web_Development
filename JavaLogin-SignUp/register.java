@@ -43,7 +43,7 @@ class Register{
                 
                  String url = "jdbc:mysql://localhost:3306/practicals";
                  String user = "root";
-                 String password = "************";
+                 String password = "Saraswat@123";
                  String s1 = t1.getText();
                  String s2 = pass.getText();
                   try {
@@ -53,6 +53,7 @@ class Register{
                          ps.setString(1, s1);
                          ps.setString(2, s2);
                          ps.executeUpdate();
+                         JOptionPane.showMessageDialog(null,"Register successfull");
 
                       } catch (Exception e1) {
                                                  e1.printStackTrace();
@@ -61,9 +62,6 @@ class Register{
           }
           });     
           
-
-
-
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
